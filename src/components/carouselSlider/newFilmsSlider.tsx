@@ -33,9 +33,13 @@ const NewFilmsSlider = () => {
           {list.map((item) => (
             <SwiperSlide className="newSlider" key={item.kinopoiskId}>
               <div className="wrapImg">
-                <span
-                  className={'textCard'}
-                >{`${item.year},${item.countries[0].country},${item.genres[0].genre}`}</span>
+                <div className="boxHover">
+                  <span className={'textCard'}>
+                    {`${item.year},${item.countries[0].country},
+                ${item.genres[0].genre}`}
+                  </span>
+                </div>
+
                 <img
                   className="imgNew"
                   id={String(item.kinopoiskId)}
