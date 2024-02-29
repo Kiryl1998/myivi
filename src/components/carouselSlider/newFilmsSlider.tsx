@@ -3,14 +3,37 @@ import { Navigation } from 'swiper/modules';
 import { useAppSelector } from '../../features/store';
 
 import './stylesNew.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBookmark as solidBook } from '@fortawesome/free-solid-svg-icons';
+import {
+  faBookmark,
+  faEyeSlash,
+  faShareFromSquare,
+  faStar,
+  faEye,
+} from '@fortawesome/free-regular-svg-icons';
+import { useState } from 'react';
 
-const NewFilmsSlider = () => {
+interface PropsNewFilmsSlider {
+  title: string;
+  sliceStart: number;
+  sliceEnd: number;
+}
+
+const NewFilmsSlider = ({
+  title,
+  sliceStart,
+  sliceEnd,
+}: PropsNewFilmsSlider) => {
+  const [bookMark, setBookMark] = useState(false);
+  const [Eye, setEye] = useState(false);
   const list = useAppSelector(({ filmsHome }) => filmsHome.list);
   console.log(list);
+
   return (
     <>
       <div className="wrap">
-        <h2 className="title">Фильмы новинки</h2>
+        <h2 className="title">{title}</h2>
 
         <Swiper
           slidesPerView={7}
@@ -30,13 +53,32 @@ const NewFilmsSlider = () => {
           modules={[Navigation]}
           className="mySwiper"
         >
-          {list.map((item) => (
+          {list.slice(sliceStart, sliceEnd).map((item) => (
             <SwiperSlide className="newSlider" key={item.kinopoiskId}>
               <div className="wrapImg">
                 <div className="boxHover">
+                  <div className="boxIcon">
+                    <FontAwesomeIcon
+                      onClick={() => {
+                        setBookMark(!bookMark);
+                      }}
+                      icon={bookMark ? solidBook : faBookmark}
+                      className={['icon'].join(' ')}
+                    />{' '}
+                    <FontAwesomeIcon
+                      icon={faShareFromSquare}
+                      className="icon"
+                    />
+                    <FontAwesomeIcon icon={faStar} className="icon" />
+                    <FontAwesomeIcon
+                      onClick={() => setEye(!Eye)}
+                      icon={Eye ? faEye : faEyeSlash}
+                      className={['icon', Eye ? 'active' : ''].join(' ')}
+                    />
+                  </div>
                   <span className={'textCard'}>
-                    {`${item.year},${item.countries[0].country},
-                ${item.genres[0].genre}`}
+                    {`${item.year}, ${item.countries[0].country},
+                 ${item.genres[0].genre}`}
                   </span>
                 </div>
 
