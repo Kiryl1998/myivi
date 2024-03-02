@@ -1,5 +1,5 @@
 import style from './header.module.css';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass, faUser } from '@fortawesome/free-solid-svg-icons';
 import { faUser as User } from '@fortawesome/free-regular-svg-icons';
@@ -13,8 +13,8 @@ const Header = () => {
               Мой Иви
             </Link>
             <nav>
-              <ul className={style.item}>
-                <Link className={style.item__list} to={'/'}>
+              <nav className={style.item}>
+                <Link className={style.item__list} to={'/watch'}>
                   Мой Иви
                 </Link>
                 <Link className={style.item__list} to={'/'}>
@@ -29,7 +29,7 @@ const Header = () => {
                 <Link className={style.item__list} to={'/'}>
                   Мультфильмы
                 </Link>
-              </ul>
+              </nav>
             </nav>
           </div>
           <div className={style.userSearch}>
@@ -43,7 +43,7 @@ const Header = () => {
               <span className={style.search__text}>Поиск</span>
             </div>
             <div className={style.user}>
-                <FontAwesomeIcon className={style.userImg}  icon={User} />
+              <FontAwesomeIcon className={style.userImg} icon={User} />
               <span className={style.textUser}>Войти</span>
             </div>
           </div>

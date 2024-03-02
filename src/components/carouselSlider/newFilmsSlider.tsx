@@ -1,6 +1,5 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
-import { useAppSelector } from '../../features/store';
 
 import './stylesNew.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -13,22 +12,27 @@ import {
   faEye,
 } from '@fortawesome/free-regular-svg-icons';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Movie, MovieResponse } from '../../features/api/type';
 
 interface PropsNewFilmsSlider {
   title: string;
   sliceStart: number;
   sliceEnd: number;
+  data: MovieResponse;
 }
 
 const NewFilmsSlider = ({
   title,
   sliceStart,
   sliceEnd,
+  data,
 }: PropsNewFilmsSlider) => {
   const [bookMark, setBookMark] = useState(false);
+
   const [Eye, setEye] = useState(false);
-  const list = useAppSelector(({ filmsHome }) => filmsHome.list);
-  console.log(list);
+
+  const navigation = useNavigate();
 
   return (
     <>
@@ -53,8 +57,14 @@ const NewFilmsSlider = ({
           modules={[Navigation]}
           className="mySwiper"
         >
-          {list.slice(sliceStart, sliceEnd).map((item) => (
-            <SwiperSlide className="newSlider" key={item.kinopoiskId}>
+          {data.docs.slice(sliceStart, sliceEnd).map((item: Movie) => (
+            <SwiperSlide
+              onClick={() => {
+                navigation('/watch/' + String(item.id));
+              }}
+              className="newSlider"
+              key={item.id}
+            >
               <div className="wrapImg">
                 <div className="boxHover">
                   <div className="boxIcon">
@@ -77,27 +87,27 @@ const NewFilmsSlider = ({
                     />
                   </div>
                   <span className={'textCard'}>
-                    {`${item.year}, ${item.countries[0].country},
-                 ${item.genres[0].genre}`}
+                    {`${item.year}, ${item.countries},
+                 ${item.genres}`}
                   </span>
                 </div>
 
                 <img
                   className="imgNew"
-                  id={String(item.kinopoiskId)}
-                  src={item.posterUrl}
+                  id={String(item.id)}
+                  src={item.poster.url}
                   alt="img"
                 />
               </div>
               {
                 <span className="subText">
-                  {item.nameRu.length < 10
-                    ? item.nameRu.slice(0, 17)
-                    : `${item.nameRu.slice(0, 15)}...`}
+                  {item.name.length < 14
+                    ? item.name.slice(0, 17)
+                    : `${item.name.slice(0, 14)}...`}
                 </span>
               }
             </SwiperSlide>
-          ))}{' '}
+          ))}
           <div
             className={[
               'swiper-button-next',

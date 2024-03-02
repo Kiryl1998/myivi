@@ -7,3 +7,9 @@
   font-size: 24px;
   color: white;
 }
+.loading {
+  text-align: center;
+  padding-top: 50px;
+  font-size: 30px;
+  background-color: white;
+}

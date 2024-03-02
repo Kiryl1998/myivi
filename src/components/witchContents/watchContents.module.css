@@ -1,0 +1,23 @@
+.boxPlayerContents {
+  display: flex;
+}
+.player {
+}
+.contents {
+  width: 100%;
+  position: relative;
+}
+.title{
+  color: rgba(255, 255, 255, 0.514);
+  margin-bottom: 30px;
+}
+.name {
+  color: white;
+  font-size: 60px;
+  text-align: center;
+}
+.subText {
+  display: block;
+  color: rgba(255, 255, 255, 0.514);
+  text-align: center;
+}

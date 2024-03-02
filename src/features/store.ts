@@ -1,12 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
-import filmsHomeSlice from './filmsHome/filmsHomeSlice';
+import { api } from './api/api';
 
 export const store = configureStore({
   reducer: {
-    filmsHome: filmsHomeSlice,
+    [api.reducerPath]: api.reducer,
   },
   devTools: true,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(api.middleware),
 });
 
 export type RootState = ReturnType<typeof store.getState>;
