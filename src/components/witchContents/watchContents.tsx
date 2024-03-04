@@ -1,4 +1,4 @@
-import ReactPlayer from 'react-player';
+import ReactPlayer from 'react-player/youtube';
 
 import style from './watchContents.module.css';
 import { Ifilm } from '../../features/api/type';
@@ -7,7 +7,6 @@ import {
   faShareFromSquare,
 } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Swiper from 'swiper';
 
 interface PropsWatchContents {
   data: Ifilm;
@@ -455,9 +454,11 @@ const WatchContents = ({ data }: PropsWatchContents) => {
       <div className={style.boxPlayerContents}>
         <div className={style.player}>
           <ReactPlayer
-            style={{ position: 'sticky', top: 0 }}
+            style={{ position: 'sticky', top: 0,}}
             controls={true}
             playing={true}
+            width='100%'
+            height='100%'
             pip={true}
             stopOnUnmount={true}
             url={data.videos.trailers[0].url}

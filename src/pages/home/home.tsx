@@ -7,7 +7,6 @@ const Home = () => {
   const { data, isLoading, error } = useGetFilmsQuery(
     '?page=1&limit=50&year=2023-2023'
   );
-  console.log(data)
   return (
     <>
       {!isLoading && data != undefined ? (
@@ -18,11 +17,13 @@ const Home = () => {
               title={'Фильмы новинки'}
               sliceStart={0}
               sliceEnd={20}
+              data={data}
             />
             <NewFilmsSlider
               title={'Популярные'}
               sliceStart={20}
               sliceEnd={47}
+              data={data}
             />
           </div>
         </>

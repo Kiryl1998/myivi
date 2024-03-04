@@ -1,5 +1,5 @@
 .header {
-  padding: 19px 0px;
+  padding: 19px 20px;
 }
 .container {
   max-width: 1270px;
@@ -69,6 +69,7 @@
   position: relative;
   cursor: pointer;
   transition: 0.2s;
+  margin-left: 10px;
 }
 .user:hover {
   background-color: rgb(46, 40, 68);
@@ -85,4 +86,9 @@
   font-size: 14px;
   color: white;
   z-index: 2;
+}
+@media screen and (max-width: 769px) {
+  nav {
+    display: none;
+  }
 }

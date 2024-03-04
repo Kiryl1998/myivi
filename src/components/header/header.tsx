@@ -13,7 +13,7 @@ const Header = () => {
               Мой Иви
             </Link>
             <nav>
-              <nav className={style.item}>
+              <ul className={style.item}>
                 <Link className={style.item__list} to={'/watch'}>
                   Мой Иви
                 </Link>
@@ -29,7 +29,7 @@ const Header = () => {
                 <Link className={style.item__list} to={'/'}>
                   Мультфильмы
                 </Link>
-              </nav>
+              </ul>
             </nav>
           </div>
           <div className={style.userSearch}>

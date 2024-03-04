@@ -14,36 +14,50 @@ import {
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Movie, MovieResponse } from '../../features/api/type';
-import { useGetFilmsQuery } from '../../features/api/api';
 
 interface PropsNewFilmsSlider {
   title: string;
-  sliceStart: number;
-  sliceEnd: number;
+  sliceStart?: number;
+  sliceEnd?: number;
+  data: MovieResponse;
 }
 
 const NewFilmsSlider = ({
   title,
   sliceStart,
   sliceEnd,
+  data,
 }: PropsNewFilmsSlider) => {
-
-  const { data } = useGetFilmsQuery('?page=1&limit=50&year=2023-2023');
-
   const [bookMark, setBookMark] = useState(false);
 
   const [Eye, setEye] = useState(false);
 
   const navigation = useNavigate();
-
+  const breakpoints = {
+    426: {
+      slidesPerView: 5,
+      spaceBetween: 24,
+      slidesPerGroup: 5,
+    },
+    1025: {
+      slidesPerView: 6,
+      spaceBetween: 24,
+      slidesPerGroup: 6,
+    },
+    1100: {
+      slidesPerView: 7,
+      spaceBetween: 24,
+      slidesPerGroup: 7,
+    },
+  };
   return (
     <>
       <div className="wrap">
         <h2 className="title">{title}</h2>
 
         <Swiper
-          slidesPerView={7}
-          slidesPerGroup={7}
+          breakpoints={breakpoints}
+          // slidesPerGroup={7}
           parallax={true}
           navigation={{
             nextEl: '.swiper-button-next',

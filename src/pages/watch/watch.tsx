@@ -4,13 +4,14 @@ import style from './watch.module.css';
 import ReactPlayer from 'react-player/youtube';
 import { useGetFilmsQuery } from '../../features/api/api';
 import WatchContents from '../../components/witchContents/watchContents';
-import NewFilmsSlider from '../../components/carouselSlider/newFilmsSlider';
+
 
 const Watch = () => {
   const { id } = useParams();
 
   const { data, isLoading, error } = useGetFilmsQuery(`/${id}`);
-
+  const list = useGetFilmsQuery('?page=1&limit=50&year=2023-2023');
+  console.log(list);
   return (
     <>
       {!isLoading ? (
@@ -21,7 +22,7 @@ const Watch = () => {
                 <WatchContents data={data} />
               </div>
             </div>
-          </section>{' '}
+          </section>
         </>
       ) : (
         <h2 className={style.loading}>Loading...</h2>
