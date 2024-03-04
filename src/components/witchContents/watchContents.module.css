@@ -1,23 +1,140 @@
 .boxPlayerContents {
   display: flex;
+  margin-bottom: 20px;
 }
 .player {
+}
+.Iplayer {
 }
 .contents {
   width: 100%;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  cursor: default;
+  padding-left: 20px;
 }
-.title{
+.title {
   color: rgba(255, 255, 255, 0.514);
   margin-bottom: 30px;
+  text-transform: capitalize;
+  cursor: default;
 }
 .name {
   color: white;
-  font-size: 60px;
+  font-size: 50px;
   text-align: center;
 }
 .subText {
   display: block;
   color: rgba(255, 255, 255, 0.514);
   text-align: center;
+  text-transform: capitalize;
+}
+.textRating {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 46px;
+  height: 46px;
+  background-color: rgb(115, 163, 47);
+  border-radius: 10px;
+}
+.wrapPersons {
+  display: flex;
+  gap: 15px;
+}
+.wrapPerson {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+.wrapPerson:hover .person {
+  background: rgba(255, 255, 255, 0.25);
+}
+.person {
+  padding: 5px;
+  width: 56px;
+  height: 56px;
+  background: rgba(255, 255, 255, 0.16);
+  border-radius: 10px;
+}
+.img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  object-position: center;
+}
+.namePerson {
+  color: rgba(255, 255, 255, 0.48);
+  font-size: 13px;
+}
+.linkBtn {
+  color: rgba(255, 255, 255, 0.72);
+  padding: 10px 12px;
+  background-color: rgba(255, 255, 255, 0.16);
+  border-radius: 10px;
+  width: 305px;
+  text-align: center;
+}
+.linksBtns {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.linkBtn:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+.icon {
+  color: rgba(255, 255, 255, 0.48);
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.16);
+  border-radius: 10px;
+  cursor: pointer;
+}
+.icon:last-child {
+  padding: 15px 10px 15px 15px;
+}
+.icon:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+.description p {
+  color: rgba(255, 255, 255, 0.48);
+}
+.actor {
+  color: white;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+.cardActor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+.wrapActors {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+}
+.wrapImg {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+}
+.wrapImg img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.profession {
+  width: 100%;
+  display: block;
+  color: white;
+  font-size: 13px;
+  text-align: left;
+  text-transform: capitalize;
 }

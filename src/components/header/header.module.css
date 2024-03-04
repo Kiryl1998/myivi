@@ -62,7 +62,7 @@
   justify-content: space-between;
   align-items: center;
   color: rgba(255, 255, 255, 0.48);
-  background-color: #1f1b2e;
+  background-color: rgb(31, 27, 46);
   padding: 5px 12px 5px 6px;
   border-radius: 10px;
   width: 95px;
@@ -70,27 +70,14 @@
   cursor: pointer;
   transition: 0.2s;
 }
-.user:hover::after {
-  content: '';
-  width: 95px;
-  height: 42px;
-  border-radius: 10px;
-  display: block;
-  background-color: #2e2844;
-  opacity: 0.5;
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 1;
-}
-.user:active::after {
-  background-color: #1f1b2e;
+.user:hover {
+  background-color: rgb(46, 40, 68);
 }
 
 .userImg {
   color: rgb(165, 161, 178);
   border-radius: 5px;
-  background-color: #312b45;
+  background-color: rgb(62, 55, 88);
   padding: 8px;
   z-index: 2;
 }

@@ -14,20 +14,22 @@ import {
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Movie, MovieResponse } from '../../features/api/type';
+import { useGetFilmsQuery } from '../../features/api/api';
 
 interface PropsNewFilmsSlider {
   title: string;
   sliceStart: number;
   sliceEnd: number;
-  data: MovieResponse;
 }
 
 const NewFilmsSlider = ({
   title,
   sliceStart,
   sliceEnd,
-  data,
 }: PropsNewFilmsSlider) => {
+
+  const { data } = useGetFilmsQuery('?page=1&limit=50&year=2023-2023');
+
   const [bookMark, setBookMark] = useState(false);
 
   const [Eye, setEye] = useState(false);
@@ -87,8 +89,8 @@ const NewFilmsSlider = ({
                     />
                   </div>
                   <span className={'textCard'}>
-                    {`${item.year}, ${item.countries},
-                 ${item.genres}`}
+                    {`${item.year}, ${item.countries[0].name},
+                 ${item.genres[0].name}`}
                   </span>
                 </div>
 

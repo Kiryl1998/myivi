@@ -4,7 +4,7 @@ const API_URL = 'https://api.kinopoisk.dev/v1.4/movie';
 
 const options = {
   accept: 'application/json',
-  // 'X-API-KEY': 'CAXNGFV-W9S4EWG-QGNG564-Y8S0F8W',
+  'X-API-KEY': 'CAXNGFV-W9S4EWG-QGNG564-Y8S0F8W',
   // 'X-API-KEY': 'XAPDHT4-Z4048Y5-J6WPJRR-Q3T49BG',
 };
 
