@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/myivi/static/css/main.16bc7bc9.css",
+    "main.js": "/myivi/static/js/main.d1596484.js",
+    "reactPlayerPreview.js": "/myivi/static/js/reactPlayerPreview.efde4f4e.chunk.js",
+    "static/js/453.ed3810f9.chunk.js": "/myivi/static/js/453.ed3810f9.chunk.js",
+    "index.html": "/myivi/index.html",
+    "main.16bc7bc9.css.map": "/myivi/static/css/main.16bc7bc9.css.map",
+    "main.d1596484.js.map": "/myivi/static/js/main.d1596484.js.map",
+    "reactPlayerPreview.efde4f4e.chunk.js.map": "/myivi/static/js/reactPlayerPreview.efde4f4e.chunk.js.map",
+    "453.ed3810f9.chunk.js.map": "/myivi/static/js/453.ed3810f9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.16bc7bc9.css",
+    "static/js/main.d1596484.js"
+  ]
+}
